@@ -3,11 +3,10 @@ package Classes;
 import java.util.Formatter;
 import java.util.NoSuchElementException;
 import java.util.FormatterClosedException;
-import java.lang.SecurityException;
 import java.io.FileNotFoundException;
 
 /**
- *Classe para objetos do tipo ArquivoSaida, onde serão contidos valores e métodos para o mesmo.
+ * Classe para objetos do tipo ArquivoSaida, onde serão contidos valores e métodos para o mesmo.
  * @author DéboraDuarte
  * @version 1.0
 */
@@ -18,7 +17,7 @@ public class ArquivoSaidaParte2 {
     private Formatter arquivo;
     
     /**
-     * Cria um arquivo de nome saída.txt.
+     * Cria um arquivo de nome saídapt2.txt.
     */
     private void abrir() {
         try {
@@ -40,15 +39,14 @@ public class ArquivoSaidaParte2 {
     */
     public ArquivoSaidaParte2(int tam){
         this.tam = tam;
-        int i=0;
-        saidas = new String[tam];
+        this.i = 0;
+        this.saidas = new String[tam];
         
     }
     
     /**
      * Adiciona uma nova saída para posterior escrita no arquivo.
-     * @param nSaida do tipo Saida sendo a sáida a ser adicionada.
-     * @see Saida
+     * @param nSaida do tipo String sendo a sáida a ser adicionada.
     */
     public void addSaida(String nSaida){
         saidas[i] = nSaida;
@@ -70,7 +68,6 @@ public class ArquivoSaidaParte2 {
         }
         catch(FormatterClosedException formatoDesconhecido) {
             System.err.println("Erro ao escrever");
-            return;
         }
         catch(NoSuchElementException excecaoElemento){
             System.err.println("Entrada invalida.");

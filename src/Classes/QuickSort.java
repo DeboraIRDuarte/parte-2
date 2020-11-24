@@ -20,10 +20,10 @@ public class QuickSort {
     
     /**
       * Função responsavel por ordenação o vetor pelo algoritimo QuickSort.
-      * @param vet Vetor de objetos do tipo registro a ser ordenado.
+      * @param vet Vetor de objetos do tipo Autor a ser ordenado.
       * @param inicio Posição inicial do vetor.
       * @param fim Posição final do vetor.
-      * @see Registro
+      * @see Autor
       */
     public void quickSorting(Autor[] vet, int inicio, int fim){
     

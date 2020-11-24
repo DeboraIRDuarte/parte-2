@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Classes;
 
 /**
- *
- * @author izabe
+* Classe para objetos do tipo Autor, onde serão contidos valores e métodos para o mesmo.
+* @author Fabrício Guidine, Débora Duarte, Walkíria Garcia
+* @version 1.0
  */
 public class Autor {
     
@@ -15,12 +11,19 @@ public class Autor {
     private int codigo;
     private int frequencia;
     
-    
+    /**
+    * Construtor da classe Autor.
+    * @param linha String que representa uma linha inteira lida do arquivo dataset.
+    */
     public Autor(String linha){
         SeparaCampos(linha);
          this.frequencia = 0;
     }
     
+    /**
+     * Recebe uma String como parâmetro , identifica os campos nessa String e os separa, campo por campo.
+     * @param str String que representa uma linha inteira lida do arquivo dataset.  
+     */
     void SeparaCampos(String str){
         int n = str.length();
         String info = "";
@@ -58,29 +61,37 @@ public class Autor {
         
     }
     
+    /**
+     * Altera o atributo nome da classe.
+     * @param nome String que é o nome a ser inserido.
+     */
     public void setNome(String nome){
        this.nome = nome; 
     }
     
+    /**
+     * @return Inteiro contendo código do Autor
+     */
     public int getCodigo(){
         return this.codigo;
     }
 
     /**
-     * @return the nome
+     * @return String contendo o nome do Autor.
      */
     public String getNome() {
         return nome;
     }
 
     /**
-     * @return the frequencia
+     * @return Inteiro que é a quantidade de livros a venda escritos pelo Autor.
      */
     public int getFrequencia() {
         return frequencia;
     }
 
     /**
+     * Acrescenta em mais um a quantidade de livros a venda escritos pelo Autor.
      */
     public void addFrequencia() {
         this.frequencia = this.frequencia +1;

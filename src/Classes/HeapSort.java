@@ -1,62 +1,64 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Classes;
 
-/**
- *
- * @author izabe
- */
+  /**
+   * Classe para objetos do tipo HeapSort, onde serão contidos valores e métodos para o mesmo.
+   * @author Débora Duarte e Fabrício Guidine
+   * @version 1.0
+   * @see Autor
+  */
 public class HeapSort 
 { 
-    public void sort(Autor arr[]) 
+    /**
+      * Constrói a Heap. 
+      * Troca o item na posição 1 do Array com o item da última posição .
+      * Use o procedimento Heapify para reconstruir a Heap para os itens A[1], A[2],..., A[n − 1], sendo n = tamanho do vetor.
+      * @param vet Array de objetos do tipo Registro a ser ordenado.
+      */
+    public void sort(Autor vet[]) 
     { 
-        int n = arr.length; 
+        int n = vet.length; 
   
-        // Build heap (rearrange array) 
         for (int i = n / 2 - 1; i >= 0; i--) 
-            heapify(arr, n, i); 
+            heapify(vet, n, i); 
   
-        // One by one extract an element from heap 
         for (int i=n-1; i>0; i--) 
         { 
-            // Move current root to end 
-            Autor temp = arr[0]; 
-            arr[0] = arr[i]; 
-            arr[i] = temp; 
+            Autor aux = vet[0]; 
+            vet[0] = vet[i]; 
+            vet[i] = aux; 
   
-            // call max heapify on the reduced heap 
-            heapify(arr, i, 0); 
+            heapify(vet, i, 0); 
         } 
     } 
   
-    void heapify(Autor arr[], int n, int i) 
+    /**
+     * Verifica se a propriedade de heap máximo não é violada em um determinado nó da árvore. 
+     * @param vet Array de objetos do tipo Autor a ser ordenado 
+     * @param n Inteiro que representa o tamanho do vetor
+     * @param i Inteiro que representa a posição do nó pai
+     * @see Autor
+     */
+    void heapify(Autor vet[], int n, int i) 
     { 
-        int largest = i; // Initialize largest as root 
-        int l = 2*i + 1; // left = 2*i + 1 
-        int r = 2*i + 2; // right = 2*i + 2
+        int maior = i; 
+        int e = 2*i + 1;  
+        int d = 2*i + 2; 
         
         try{
-       //System.out.println(n + " " + i + " " + l + " "+ r);
-        // If left child is larger than root 
-        if (l < n && arr[l].getFrequencia() > arr[largest].getFrequencia()) 
-            largest = l; 
+
+        if (e < n && vet[e].getFrequencia() > vet[maior].getFrequencia()) 
+            maior = e; 
   
-        // If right child is larger than largest so far 
-        if (r < n && arr[r].getFrequencia() > arr[largest].getFrequencia()) 
-            largest = r; 
+        if (d < n && vet[d].getFrequencia() > vet[maior].getFrequencia()) 
+            maior = d; 
   
-        // If largest is not root 
-        if (largest != i) 
+        if (maior != i) 
         { 
-            Autor swap = arr[i]; 
-            arr[i] = arr[largest]; 
-            arr[largest] = swap; 
+            Autor aux = vet[i]; 
+            vet[i] = vet[maior]; 
+            vet[maior] = aux; 
   
-            // Recursively heapify the affected sub-tree 
-            heapify(arr, n, largest); 
+            heapify(vet, n, maior); 
         } 
         } catch (NullPointerException ex){}
     }
